@@ -1,0 +1,44 @@
+﻿@page
+@model RazorCore.Pages.Products.CreateModel
+@{
+}
+<form method="post" class="p-3 mt-4">
+    <div class="row pb-3">
+        <h2 class="text-alert-primary p-lg-3">Create a product</h2>
+        <hr />
+    </div>
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label asp-for="Product.Name"></label>
+        
+        <input type="text" name="Name" asp-for="Product.Name" class="form-control" />
+        <span asp-validation-for="Product.Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+       <label asp-for="Product.Price"> </label>
+        <input type="text" name="Price" asp-for="Product.Price"  class="form-control"  />
+         <span asp-validation-for="Product.Price" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Product.CategoryId">Select Category</label>
+        <select name="CategoryId" asp-for="@Model.Product.CategoryId"  class="form-control" >
+             <option value="0">Select Category</option>
+            @foreach (var item in Model.Categories)
+            {
+                <option value=@item.Id>@item.Name</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+
+        <button type="submit" class="btn btn-info" > Create Product</button>
+        <a asp-page="Index" class="btn btn-primary">Back to Products</a>
+    </div>
+
+</form>
+@*create cline side validation using partial view*@
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

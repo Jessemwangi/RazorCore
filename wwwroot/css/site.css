@@ -16,3 +16,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+a:disabled {
+    color: gray !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}

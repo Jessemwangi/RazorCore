@@ -30,6 +30,7 @@ namespace RazorCore.Pages.Products
 
             if (!ModelState.IsValid || Product == null)
             {
+                TempData["Error"] = $"Bad entry or incorrect entry.";
                 return BadRequest(ModelState);
             }
             else
@@ -45,6 +46,7 @@ namespace RazorCore.Pages.Products
                 }
                 else
                 {
+                    TempData["Error"] = $"Failed to delete {Product.Name}.";
                     return BadRequest("No Record found");
                 }
             }

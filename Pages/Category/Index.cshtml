@@ -1,27 +1,26 @@
 ﻿@page
-@model RazorCore.Pages.ProductInCat.IndexModel
+@model RazorCore.Pages.Category.IndexModel
 @{
 }
-
 <div class="row-12 bg-dark border-2">
-    <h1 class="text-white">@Model.Category.Name</h1>
+    <h1 class="text-white">Categories</h1>
 </div>
 <div class="row-12">
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 
-                <th>Name</th>
-                <th>Price</th>
+                <th>Category Name</th>
+                <th>Total Products</th>
             </tr>
 
         </thead>
         <tbody>
-            @foreach (var p in Model.Products)
+            @foreach (var C in Model.categories)
             {
                 <tr>
-                    <td>@p.Name</td>
-                    <td>@p.Price</td>
+                    <td>@C.Name</td>
+                    <td>@C.Products.Count()</td>
                 </tr>
             }
             </tbody>

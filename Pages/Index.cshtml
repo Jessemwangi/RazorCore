@@ -1,10 +1,44 @@
 ﻿@page
-@model IndexModel
+@using RazorCore.Models
+@model RazorCore.Pages.Products.IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Cateogry</th>
+                <th></th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (Product p in Model.products)
+            {
+
+                <tr class="col-12  text-black">
+                    <td>
+                        @p.Id
+                       
+                        <a asp-page="ProductInCat/index" asp-route-id="@p.CategoryId"> @(p.Category?.Name ?? "Not found")</a>
+                    </td>
+                    <td>
+                        @p.Name
+                    </td>
+                    <td>
+                        @p.Price
+                    </td>
+                    <td>
+                        @p.CategoryId
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

@@ -1,0 +1,29 @@
+﻿@page
+@model RazorCore.Pages.ProductInCat.IndexModel
+@{
+}
+
+<div class="row-12 bg-dark border-2">
+    <h1 class="text-white">Model.Category.Name</h1>
+</div>
+<div class="row-12">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var p in Model.Products)
+            {
+                <tr>
+                    <td>@p.Name</td>
+                    <td>@p.Price</td>
+                </tr>
+            }
+            </tbody>
+            </table>
+</div>

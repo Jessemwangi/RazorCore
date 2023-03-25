@@ -14,7 +14,6 @@ namespace RazorCore.Pages.Products
         public IndexModel(DataContext dataContext)
         {
             DataContext = dataContext;
-            products = new List<Product>();
         }
 
         public void OnGet()

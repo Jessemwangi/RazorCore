@@ -1,0 +1,41 @@
+﻿@page
+@model RazorCore.Pages.CategoryP.IndexModel
+@{
+}
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-10 text-end">
+            <a asp-page="newcategory" class="btn btn-primary"><i class="bi bi-plus-square"></i> Create a category</a>
+
+        </div>
+        <div class="col-10 text-start">
+            <h2 class="text-primary">Category Lists</h2>
+        </div>
+    </div>
+    <p class="mt-5 mb-2"><hr /></p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                
+                <th>Category Name</th>
+                <th>Total Products</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var C in Model.categories)
+            {
+                <tr>
+                    <td>@C.Name</td>
+                    <td>@C.Products.Count()</td>
+                    <td>
+                      
+                        <a asp-page="EditCart" asp-route-Id="@C.Id"  class="btn btn-danger mx-2" ><i class="bi bi-pencil-square"></i></a>
+                          <a asp-page="DeleteCart" asp-route-Id="@C.Id" class="btn btn-primary mx-2 @(C.Products.Count() != 0 ? "disabled" : "")"><i class="bi bi-trash3"></i>
+                              </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+            </table>
+</div>

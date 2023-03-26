@@ -40,7 +40,13 @@
         <main role="main" class="pb-3">
             <partial name="_Notification" />
             @RenderBody()
+            
         </main>
+        <div class="row">
+            <div class="col-12">
+                @RenderSection("FooterInfo",false)
+            </div>
+        </div>
     </div>
 
     <footer class="border-top footer text-muted bg-dark text-white">

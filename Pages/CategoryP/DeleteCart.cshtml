@@ -27,8 +27,14 @@
 </div>
     <div class="mb-3">
 
-        <button type="submit" class="btn btn-danger" ><i class="bi bi-trash3"></i> Delete Product</button>
+        <button type="submit" class="btn btn-danger @(Model.category.Products.Count() != 0 ? "disabled" : "")" ><i class="bi bi-trash3"></i> Delete Product</button>
          <a asp-page="Index" class="btn btn-primary">Back to Products</a>
     </div>
 
 </form>
+@if(Model.category.Products.Count() > 0)
+{
+    @section FooterInfo{
+    <div class="bg-danger text-white p-2">Cannot delete category @Model.category.Name because it has associated products.</div>
+}
+}

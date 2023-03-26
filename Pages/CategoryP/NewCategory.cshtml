@@ -2,6 +2,7 @@
 @model RazorCore.Pages.CategoryP.NewCategoryModel
 
 <form method="post" class="p-3 mt-4">
+    @Html.AntiForgeryToken()
     <div class="row pb-3">
         <h2 class="text-alert-primary p-lg-3">Create a new Category</h2>
         <hr />

@@ -22,10 +22,10 @@ namespace RazorCore.Pages.Products
         {
             Product = Context.products.Include(p => p.Category).FirstOrDefault(p => p.Id.Equals(Id)) ?? new Product();
             //Product = Context.products.Include(p => p.Category).Where(p => p.Id.Equals(Id)).FirstOrDefault();
-            Categories = Context.categories;
+           
         }
 
-        public async Task<IActionResult> OnPost() // bind property take care of passing model
+        public async Task<IActionResult> OnPostAsync() // bind property take care of passing model
         {
 
             if (!ModelState.IsValid || Product == null)

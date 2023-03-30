@@ -3,6 +3,7 @@
 @{
 }
 <form method="post" class="p-3 mt-4">
+     @Html.AntiForgeryToken()
     <input hidden asp-for="Product!.Id" />
     <div class="row pb-3">
         <h2 class="text-alert-primary p-lg-3">Edit a Product</h2>

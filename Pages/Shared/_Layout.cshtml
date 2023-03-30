@@ -12,6 +12,7 @@
 </head>
 <body>
     <header>
+
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">RazorCore</a>
@@ -37,9 +38,15 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            @*<partial name="_Notification" />*@
+            <partial name="_Notification" />
             @RenderBody()
+            
         </main>
+        <div class="row">
+            <div class="col-12">
+                @RenderSection("FooterInfo",false)
+            </div>
+        </div>
     </div>
 
     <footer class="border-top footer text-muted bg-dark text-white">

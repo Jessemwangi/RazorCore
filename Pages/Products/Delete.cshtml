@@ -5,7 +5,7 @@
 <form method="post" class="p-3 mt-4">
     <input hidden asp-for="Product.Id" />
     <div class="row pb-3">
-        <h2 class="text-alert-primary p-lg-3">Edit a Product</h2>
+        <h2 class="text-alert-primary p-lg-3">Delete a Product</h2>
         <hr />
     </div>
     <div asp-validation-summary="All"></div>
@@ -21,14 +21,9 @@
          <span asp-validation-for="Product.Price" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Product.CategoryId">Select Category</label>
-        <select asp-for="@Model.Product.CategoryId"  class="form-control"  >
-             <option value="0">Select Category</option>
-            @foreach (var item in Model.Categories)
-            {
-                <option value=@item.Id>@item.Name</option>
-            }
-        </select>
+        <label asp-for="Product.CategoryId">Category</label>
+        <label   class="form-control"  >@Model.Product.Category.Name
+        </label>
     </div>
     <div class="mb-3">
 
@@ -37,9 +32,3 @@
     </div>
 
 </form>
-@*create cline side validation using partial view*@
-@section Scripts{
-    @{
-        <partial name="_ValidationScriptsPartial"/>
-    }
-}
